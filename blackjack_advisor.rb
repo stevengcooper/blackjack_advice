@@ -26,13 +26,13 @@ hash_hard = {5 => hit,
             7 => hit,
             8 => hit.merge({5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
             9 => hit.merge({2 => "Double down if possible. If not Hit.", 3 => "Double down if possible. If not Hit.", 4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
-            10 => double_stand.merge({10 => "Hit.", 11 => "Hit."}),
+            10 => double_stand.merge({10 => "You should Hit.", 11 => "You should Hit."}),
             11 => double_stand,
-            12 => hit.merge({4 => "Stand.", 5=> "Stand.", 6 => "Stand."}),
-            13 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
-            14 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
-            15 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
-            16 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
+            12 => hit.merge({4 => "I think you should Stand.", 5=> "I think you should Stand.", 6 => "I think you should Stand."}),
+            13 => hit.merge({2 => "I think you should Stand.", 3 => "I think you should Stand.", 4 => "I think you should Stand.", 5 => "I think you should Stand.", 6 => "I think you should Stand."}),
+            14 => hit.merge({2 => "I think you should Stand.", 3 => "I think you should Stand.", 4 => "I think you should Stand.", 5 => "I think you should Stand.", 6 => "I think you should Stand."}),
+            15 => hit.merge({2 => "I think you should Stand.", 3 => "I think you should Stand.", 4 => "I think you should Stand.", 5 => "I think you should Stand.", 6 => "I think you should Stand."}),
+            16 => hit.merge({2 => "I think you should Stand.", 3 => "I think you should Stand.", 4 => "I think you should Stand.", 5 => "I think you should Stand.", 6 => "I think you should Stand."}),
             17 => stand,
             18 => stand,
             19 => stand,
@@ -48,8 +48,8 @@ hash_soft = {13 => hit.merge({4 => "Double down if possible. If not Hit.", 5 => 
             19 => stand.merge({6 => "Double down if possible.  If not Stand."}),
             20 => stand,
             21 => stand}
-hash_pair = {4 => split.merge({8 => "Hit.", 9 => "Hit.", 10 => "Hit.", 11 => "Hit."}),
-            6 => split.merge({9 => "Hit.", 10 => "Hit.", 11 => "Hit."}),
+hash_pair = {4 => split.merge({8 => "You should Hit.", 9 => "You should Hit.", 10 => "You should Hit.", 11 => "You should Hit."}),
+            6 => split.merge({9 => "You should Hit.", 10 => "You should Hit.", 11 => "You should Hit."}),
             8 => hit.merge({4 => "Here's a good chance to Split.", 5 => "Here's a good chance to Split.", 6=> "Here's a good chance to Split."}),
             10 => double_hit.merge({10 =>  "You should Hit.", 11 => "You should Hit."}),
             12 => split.merge({8 =>  "You should Hit.", 9 =>  "You should Hit.", 10 =>  "You should Hit.", 11 =>  "You should Hit."}),
@@ -58,7 +58,7 @@ hash_pair = {4 => split.merge({8 => "Hit.", 9 => "Hit.", 10 => "Hit.", 11 => "Hi
             18 => split.merge({7 => "You should Stand.", 10 => "You should Stand.", 11 => "You should Stand."}),
             20 => stand,
             22 => split}
-            
+
 puts "Welcome to the Blackjack Advisor!"
 puts "What is your first card?"
 card1 = gets.chomp
