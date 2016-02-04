@@ -58,7 +58,8 @@ hash_pair = {4 => split.merge({8 => "Hit.", 9 => "Hit.", 10 => "Hit.", 11 => "Hi
             18 => split.merge({7 => "You should Stand.", 10 => "You should Stand.", 11 => "You should Stand."}),
             20 => stand,
             22 => split}
-
+            
+puts "Welcome to the Blackjack Advisor!"
 puts "What is your first card?"
 card1 = gets.chomp
 puts "What is your second card?"
