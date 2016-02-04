@@ -13,32 +13,37 @@ def ace_checker(card)
   end
 end
 
-hash_h = Hash.new("Hit")
-hash_s = Hash.new("Stand")
-hash_sp = Hash.new("Split")
-hash_dhit = Hash.new("Double down if possible. If not Hit.")
-hash_dstand = Hash.new("Double down if possible. If not Stand.")
-hash_hard = {5 => hash_h,
-            6 => hash_h,
-            7 => hash_h,
-            8 => hash_h.merge({5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
-            9 => hash_h.merge({2 => "Double down if possible. If not Hit.", 3 => "Double down if possible. If not Hit.", 4 => "Double down if possible. If not Hit.",5 => "Double down if possible. If not Hit.",6 => "Double down if possible. If not Hit."})},
-            10 => hash_dhit({10 => "Hit.", 11 => "Hit.",}),
-            11 => hash_dhit,
-            12 => hash_h.({4 => "Stand.", 5=> "Stand.", 6 => "Stand."}),
-            13 => hash_h({2 => "Stand.",3 => "Stand.",4 => "Stand.",5 => "Stand.",6}),
-            14 => hash_h({2 => "Stand.", 3 => "Stand.",4 => "Stand.",5 => "Stand.",6}),
-            15 => hash_h({2 => "Stand.",3 => "Stand.",4 => "Stand.",5 => "Stand.",6}),
-            16 => hash_h({2 => "Stand.",3 => "Stand.",4 => "Stand.",5 => "Stand.",6}),
-            17 => hash_s.merge
-            18 => hash_s.merge
-            19 => hash_s.merge
-            20 => hash_s.merge
-            21 => hash_s.merge
-
-
-
-hash_soft ={}
+hit = Hash.new("You should Hit.")
+stand = Hash.new("I think you should Stand.")
+split = Hash.new("Here's a good chance to Split.")
+double_hit = Hash.new("Double down if possible. If not Hit.")
+double_stand = Hash.new("Double down if possible. If not Stand.")
+hash_hard = {5 => hit,
+            6 => hit,
+            7 => hit,
+            8 => hit.merge({5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+            9 => hit.merge({2 => "Double down if possible. If not Hit.", 3 => "Double down if possible. If not Hit.", 4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+            10 => double_stand.merge({10 => "Hit.", 11 => "Hit."}),
+            11 => double_stand,
+            12 => hit.merge({4 => "Stand.", 5=> "Stand.", 6 => "Stand."}),
+            13 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
+            14 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
+            15 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
+            16 => hit.merge({2 => "Stand.", 3 => "Stand.", 4 => "Stand.", 5 => "Stand.", 6 => "Stand."}),
+            17 => stand,
+            18 => stand,
+            19 => stand,
+            20 => stand,
+            21 => stand
+            }
+hash_soft = {13 => hit({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+            14 => hit({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+            15 => hit({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+            16 => hit({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+            17 => => hit({2 => "Double down if possible. If not Hit.", 3 => "Double down if possible. If not Hit.", 4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+            18 => stand({3 => "Double down if possible. If not Hit.", 4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit.",  9 => "You should Hit.", 10 => "You should Hit."})
+            19
+          }
 hash_pair = {}
 puts "Welcome to the blackjack helper!"
 puts "What is your first card?"
@@ -53,9 +58,6 @@ check_card(dealer_card)
 dealer_card = dealer_card.to_i
 user_card_total = card1.to_i + card2.to_i
 
-p user_card_total
-p dealer_card
-
 if ace_checker(card1) == true || ace_checker(card2) == true
   puts hash_soft[user_card_total][dealer_card]
 elsif card1 == card2
@@ -63,5 +65,3 @@ elsif card1 == card2
 else
   puts hash_hard[user_card_total][dealer_card]
 end
-puts "#{hash_hard[8][5]} DEBUG"
-puts user_card_total
