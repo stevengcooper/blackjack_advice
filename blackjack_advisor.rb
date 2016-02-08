@@ -1,9 +1,9 @@
-
-def check_card(card)
+require 'byebug'
+def card_to_number(card)
   first_letter = card[0].downcase
   if first_letter == "a"
     11
-  elsif ["k","q", "j"].include?(card)
+  elsif ["k", "q", "j"].include?(first_letter)
     10
   else
     card.to_i
@@ -39,7 +39,7 @@ hash_hard = {5 => hit,
             20 => stand,
             21 => stand
             }
-hash_soft = {13 => hit.merge({4 => "Double down if possible. If not Hit.", 5 => "Double         down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
+hash_soft = {13 => hit.merge({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
             14 => hit.merge({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
             15 => hit.merge({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
             16 => hit.merge({4 => "Double down if possible. If not Hit.", 5 => "Double down if possible. If not Hit.", 6 => "Double down if possible. If not Hit."}),
@@ -66,15 +66,15 @@ puts "What is your second card?"
 card2 = gets.chomp
 puts "What is the dealer's card?"
 dealer_card = gets.chomp
-card1 = check_card(card1)
-card2 = check_card(card2)
-dealer_card= check_card(dealer_card)
-user_card_total = card1.to_i + card2.to_i
+card1 = card_to_number(card1)
+card2 = card_to_number(card2)
+dealer_card= card_to_number(dealer_card)
+user_card_total = card1 + card2
 
-if  card1 == 11 || card2 == 11
-  puts hash_soft[user_card_total][dealer_card]
-elsif card1 == card2
+if card1 == card2
   puts hash_pair[user_card_total][dealer_card]
+elsif  card1 == 11 || card2 == 11
+  puts hash_soft[user_card_total][dealer_card]
 else
   puts hash_hard[user_card_total][dealer_card]
 end
